@@ -15,7 +15,6 @@ class CurrentSchoolServiceProvider extends ServiceProvider
      */
     public function register()
     {
-
         $this->app->singleton(CurrentSchool::class, function ($app) {
             $name = config('school');
             $value = $app->make(Request::class)->route('school');

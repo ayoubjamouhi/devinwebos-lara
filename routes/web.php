@@ -17,8 +17,6 @@ Route::middleware('web')->domain(env('SITE_URL'))->group(function () {
 
 });
 Route::middleware('web')->domain('{school}.'.env('SITE_URL'))->group(function ($schoolName) {
-   Route::get('/', function($school) {
-       dd(CurrentSchool::getCurrentSchool());
-
-   });
+   Route::get('/', [\App\Http\Controllers\SchoolController::class, 'index']);
+   Route::get('/get-available-groups', [ \App\Http\Controllers\SchoolController::class, 'getAvailableGroups']);
 });

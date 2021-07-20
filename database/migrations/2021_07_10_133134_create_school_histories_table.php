@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Posts extends Migration
+class CreateSchoolHistoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class Posts extends Migration
      */
     public function up()
     {
-        Schema::create("schools",  function (Blueprint $table) {
+        Schema::create('school_histories', function (Blueprint $table) {
             $table->id();
-            $table->text('content');
-            $table->date('created');
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ class Posts extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('school_histories');
     }
 }
